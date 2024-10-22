@@ -13,7 +13,11 @@ from django.contrib.auth import authenticate, login, logout
 @login_required(login_url='login')
 def index(request):
     movies = Movie.objects.all()
-    featured_movie = movies[len(movies)-1]
+    
+    if movies.exists():  # Check if the queryset has any movies
+        featured_movie = movies.last()  # Use the last() method to get the last movie
+    else:
+        featured_movie = None  # Handle the case when there are no movies
 
     context = {
         'movies': movies,
