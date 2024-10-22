@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
             name='MovieList',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('movie', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='netflix_core_app.movie')),
+                ('movie', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='bumbo_core_app.movie')),
                 ('owner_user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
